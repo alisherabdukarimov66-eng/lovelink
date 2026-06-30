@@ -28,7 +28,7 @@ function LinkReady() {
     save();
   }, [code, survey]);
 
-  const link = `http://localhost:5173/l/${code}`;
+  const link = `${window.location.origin}/l/${code}`;
 
   const copyLink = async () => {
     await navigator.clipboard.writeText(link);

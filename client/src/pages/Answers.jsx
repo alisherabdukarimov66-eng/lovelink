@@ -18,6 +18,19 @@ function Answers() {
     loadAnswers();
   }, [id]);
 
+  function formatDate(date) {
+    return new Date(date).toLocaleString("uz-UZ", {
+      timeZone: "Asia/Tashkent",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-500 via-rose-500 to-purple-700">
@@ -53,7 +66,7 @@ function Answers() {
                   </h2>
 
                   <span className="text-gray-500 text-sm">
-                    {new Date(answer.created_at).toLocaleString()}
+                    {formatDate(answer.created_at)}
                   </span>
                 </div>
 

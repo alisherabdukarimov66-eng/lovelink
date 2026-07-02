@@ -58,18 +58,56 @@ function Questions() {
 
         <div className="space-y-5">
           {questions.map((question, index) => (
-            <div key={index} className="flex gap-3">
+            <div
+  key={index}
+  className="
+  flex
+  gap-3
+  bg-white/5
+  backdrop-blur-xl
+  border
+  border-white/10
+  rounded-3xl
+  p-3
+  transition-all
+  duration-300
+  hover:bg-white/10
+  "
+>
 
               <input
                 value={question}
                 onChange={(e) => handleChange(index, e.target.value)}
                 placeholder={`${index + 1}-savol`}
-                className="flex-1 rounded-2xl p-4 outline-none"
+               className="
+flex-1
+rounded-2xl
+p-5
+bg-white/15
+backdrop-blur-xl
+border
+border-white/20
+text-white
+placeholder-pink-100
+outline-none
+focus:border-white
+focus:bg-white/20
+transition-all
+"
               />
 
               <button
                 onClick={() => removeQuestion(index)}
-                className="bg-red-500 text-white px-5 rounded-xl"
+                className="
+bg-red-500/90
+hover:bg-red-600
+text-white
+px-5
+rounded-2xl
+transition-all
+duration-300
+hover:scale-105
+"
               >
                 ✕
               </button>
@@ -80,7 +118,19 @@ function Questions() {
 
         <button
           onClick={addQuestion}
-          className="mt-6 bg-white text-pink-600 px-6 py-3 rounded-full font-bold"
+          className="
+mt-6
+bg-white
+text-pink-600
+px-8
+py-4
+rounded-2xl
+font-bold
+shadow-xl
+hover:scale-105
+transition-all
+duration-300
+"
         >
           ➕ Savol qo'shish
         </button>
@@ -95,7 +145,19 @@ function Questions() {
 
           <button
             onClick={next}
-            className="px-10 py-4 rounded-full bg-white text-pink-600 font-bold"
+            className="
+px-12
+py-4
+rounded-2xl
+bg-white
+text-pink-600
+font-bold
+shadow-xl
+hover:scale-105
+hover:shadow-[0_0_40px_rgba(255,255,255,0.45)]
+transition-all
+duration-300
+"
           >
             Davom etish →
           </button>

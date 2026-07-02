@@ -90,39 +90,49 @@ function Recipient() {
   );
 }
 
-function Card({ emoji,title,active,onClick }){
-
-  return(
-
+function Card({ emoji, title, active, onClick }) {
+  return (
     <div
       onClick={onClick}
       className={`
+      group
+      relative
+      overflow-hidden
       p-10
-      rounded-3xl
+      rounded-[30px]
       cursor-pointer
-      transition
-      duration-300
+      backdrop-blur-2xl
+      border
+      transition-all
+      duration-500
       text-center
+
+      hover:scale-105
+      hover:-translate-y-2
+      hover:shadow-[0_20px_60px_rgba(0,0,0,0.25)]
 
       ${
         active
-        ? "bg-white text-pink-600 scale-105"
-        : "bg-white/15 text-white hover:bg-white/25"
+          ? "bg-white text-pink-600 border-white shadow-[0_0_40px_rgba(255,255,255,0.45)] ring-4 ring-white/30"
+          : "bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-pink-300/40"
       }
-
       `}
     >
+      <div className="text-7xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+        {emoji}
+      </div>
 
-      <div className="text-6xl">{emoji}</div>
-
-      <h2 className="text-2xl font-bold mt-5">
+      <h2 className="text-3xl font-black mt-5">
         {title}
       </h2>
 
+      {active && (
+        <div className="absolute top-5 right-5 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+          ✓
+        </div>
+      )}
     </div>
-
-  )
-
+  );
 }
 
 export default Recipient;

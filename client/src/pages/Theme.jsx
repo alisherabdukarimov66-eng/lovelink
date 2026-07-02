@@ -36,14 +36,36 @@ function Theme() {
             <div
               key={item.id}
               onClick={() => setTheme(item.id)}
-              className={`p-8 rounded-3xl cursor-pointer transition ${
-                theme === item.id
-                  ? "bg-white text-pink-600"
-                  : "bg-white/20 text-white"
-              }`}
+              className={`
+group
+p-8
+rounded-[30px]
+cursor-pointer
+backdrop-blur-2xl
+border
+transition-all
+duration-500
+
+hover:scale-105
+hover:-translate-y-2
+hover:shadow-[0_20px_60px_rgba(0,0,0,0.25)]
+
+${
+theme === item.id
+? "bg-white text-pink-600 border-white shadow-[0_0_40px_rgba(255,255,255,0.45)] ring-4 ring-white/30"
+: "bg-white/10 text-white border-white/20 hover:bg-white/20 hover:border-pink-300/40"
+}
+`}
             >
-              <div className="text-5xl">{item.emoji}</div>
+             <div className="text-6xl transition-all duration-300 group-hover:scale-125 group-hover:rotate-6">
+  {item.emoji}
+</div>
               <h2 className="text-2xl font-bold mt-4">{item.title}</h2>
+              {theme === item.id && (
+  <div className="mt-4 inline-block bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+    ✓ Tanlandi
+  </div>
+)}
             </div>
           ))}
         </div>
@@ -51,7 +73,19 @@ function Theme() {
         <div className="flex justify-between mt-10">
           <button
             onClick={() => navigate("/questions")}
-            className="px-8 py-4 rounded-full bg-white/20 text-white"
+            className="
+px-8
+py-4
+rounded-2xl
+bg-white/15
+backdrop-blur-xl
+text-white
+border
+border-white/20
+hover:bg-white/25
+transition-all
+duration-300
+"
           >
             ← Orqaga
           </button>
@@ -59,11 +93,11 @@ function Theme() {
           <button
             disabled={!theme}
             onClick={next}
-            className={`px-10 py-4 rounded-full font-bold ${
-              theme
-                ? "bg-white text-pink-600"
-                : "bg-white/20 text-white cursor-not-allowed"
-            }`}
+           className={`px-12 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl ${
+theme
+? "bg-white text-pink-600 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.45)]"
+: "bg-white/20 text-white cursor-not-allowed"
+}`}
           >
             Davom etish →
           </button>

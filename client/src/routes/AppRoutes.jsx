@@ -8,6 +8,7 @@ import LinkReady from "../pages/LinkReady";
 import Receiver from "../pages/Receiver";
 import Dashboard from "../pages/Dashboard";
 import Answers from "../pages/Answers";
+import Login from "../pages/Login";
 
 function AppRoutes() {
   return (
@@ -21,6 +22,7 @@ function AppRoutes() {
       <Route path="/questions" element={<Questions />} />
       <Route path="/recipient" element={<Recipient />} />
       <Route path="/answers/:id" element={<Answers />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }
